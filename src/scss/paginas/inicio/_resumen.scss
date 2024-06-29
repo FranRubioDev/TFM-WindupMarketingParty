@@ -1,0 +1,144 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.resumen {
+    background-image: linear-gradient(to right, rgba(v.$azul, .7), rgba(v.$azul, .9)), url(../img/bg_numeros.jpg);
+    background-image: linear-gradient(to right, rgba(v.$azul, .7), rgba(v.$azul, .9)), image-set(
+        url('../img/bg_numeros.avif') 1x,
+        url('../img/bg_numeros.webp') 1x,
+        url('../img/bg_numeros.jpg') 1x,
+    );
+    padding: 12rem 0;
+    background-size: cover;
+    background-position: center;
+
+    &__grid {
+        @include m.contenedor;
+        @include m.grid(1, 5rem);
+        @include m.tablet {
+            @include m.grid(2, 5rem);
+        }
+    }
+
+    &__bloque {
+        text-align: center;
+        color: v.$blanco;
+    }
+
+    &__texto {
+        font-weight: v.$black;
+        line-height: 1;
+        margin: 0;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+
+        &--numero {
+            @extend .resumen__texto;
+            font-size: 8rem;
+        }
+    }
+}
+
+
+
+.contador {
+    @include m.contenedor;
+
+    padding: 8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.contador__texto {
+    font-size: 4rem;
+    color: #333;
+    margin-right: 20px;
+}
+
+.contador__texto--negrita {
+    font-weight: bold;
+    color: #e63946;
+}
+
+.contador__circulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    border: 4px solid;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+
+    &--dias {
+        border-color: v.$coral;
+    }
+
+    &--horas {
+        border-color: v.$azul;
+    }
+
+    &--minutos {
+        border-color: v.$morado;
+    }
+
+    &--segundos {
+        border-color: v.$verde-pastel;
+    }
+
+}
+
+.contador__value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contador__texto {
+
+    &--dias {
+        color: v.$coral;
+    }
+
+    &--horas {
+        color: v.$azul;
+    }
+    &--minutos {
+        color: v.$morado;
+    }
+
+    &--segundos {
+        color: v.$verde-pastel;
+    }
+
+
+}
+
+.contador__numero {
+
+    font-size: 4rem;
+    font-weight: v.$bold;
+
+    &--dias {
+        color: v.$coral;
+    }
+
+    &--horas {
+        color: v.$azul;
+    }
+    &--minutos {
+        color: v.$morado;
+    }
+
+    &--segundos {
+        color: v.$verde-pastel;
+    }
+
+
+}

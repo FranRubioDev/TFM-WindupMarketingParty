@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    background-color:#99b1ff;
+    background-image:
+    radial-gradient(at 77% 92%, hsla(354,71%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 28% 27%, hsla(332,83%,69%,1) 0px, transparent 50%),
+    radial-gradient(at 25% 40%, hsla(197,87%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 59% 53%, hsla(114,72%,65%,1) 0px, transparent 50%),
+    radial-gradient(at 53% 52%, hsla(342,69%,68%,1) 0px, transparent 50%),
+    radial-gradient(at 36% 93%, hsla(310,74%,73%,1) 0px, transparent 50%),
+    radial-gradient(at 67% 61%, hsla(203,99%,65%,1) 0px, transparent 50%);
+    margin-top: 8rem;
+    padding-top: 3rem;
+    color: v.$blanco;
+
+    &__grid {
+        @include m.contenedor;
+        @include m.tablet {
+            @include m.grid(2, 3rem);
+        }
+    }
+
+    &__logo {
+        @include m.logo;
+        @include m.texto-fluido(2rem, 4rem);
+    }
+
+    &__texto {
+        line-height: 2;
+        text-align: center;
+        @include m.tablet {
+            text-align: left;
+        }
+    }
+
+    &__copyright {
+        background-color: darken(v.$azul, 10);
+        margin: 3rem 0 0 0;
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: v.$black;
+
+        &--regular {
+            font-weight: v.$regular;
+        }
+    }
+}

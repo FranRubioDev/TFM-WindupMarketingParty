@@ -1,0 +1,74 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.eventomk {
+
+    &__grid {
+        @include m.contenedor;
+        @include m.grid(1, 3rem);
+        @include m.tablet {
+            @include m.grid(2, 5rem);
+            align-items: center;
+        }
+
+        max-width: 128rem;
+        padding: 8rem 0rem;
+    }
+
+    &__heading {
+        text-align: left;
+        font-weight: v.$delgada;
+
+    }
+
+    &__texto {
+        line-height: 2;
+
+        padding-bottom: 6rem;
+    }
+
+    img {
+        width: 59rem;
+        height: 52rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+
+    &__contenido--icono {
+        max-width: 6rem;
+        max-height: 6rem;
+        object-fit: contain;
+    }
+
+
+    &__contenido--pregunta {
+        font-weight: v.$bold;
+    }
+
+    &__contenido--izquierda {
+        max-width: 80%;
+        justify-content: space-around;
+    }
+
+    &__contenido--descripcion {
+        font-weight: v.$delgada;
+        font-size: 1.4rem;
+    }
+
+    &__contenido1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__contenido2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+}
+
+

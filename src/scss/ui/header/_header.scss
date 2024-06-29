@@ -1,0 +1,136 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header {
+    min-height: 100vh;
+    justify-content: center;
+
+    #backgroundvideo {
+        min-width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+     }
+
+    &__fondo {
+        min-width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        background: -webkit-linear-gradient(45deg, #0F063E, rgba(0, 82, 115, 0.5), #6e1822);
+        background: linear-gradient(45deg, #0F063E, rgba(0, 82, 115, 0.5), #6e1822);                                          
+    }
+
+    &__contenedor {
+        @include m.contenedor;
+
+
+    }
+
+    &__navegacion {
+        padding: 5rem 0 10rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        @include m.tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__enlace {
+        @include m.enlace;
+
+    }
+    &__form {
+        display: flex;
+    }
+    &__submit {
+        @extend .header__enlace;
+    }
+    &__contenido {
+        padding-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include m.tablet {
+            padding-top: 5rem;
+        }
+    }
+    &__logo {
+        @include m.texto-fluido(2rem, 10rem);
+        padding-bottom: 6rem;
+        color: v.$blanco;
+        text-align: center;
+        @include m.tablet {
+            display: block;
+        }
+
+        &--delgada {
+            font-weight: v.$delgada;
+        }
+
+
+    }
+    &__texto {
+        font-size: 2rem;
+        font-weight: v.$bold;
+        color: v.$naranja;
+        margin: 4rem 0;
+        text-align: center;
+
+        i {
+            padding-left: 3rem;
+            padding-right: 1rem;
+        }
+    }
+
+    &__boton {
+        @include m.boton(v.$coral, v.$blanco);
+        &:hover {
+            background-color: #fafafa00;
+            border: 2px solid v.$coral;
+        }
+        margin: 2rem 1rem;
+
+        &--alterno {
+            @include m.boton(v.$naranja, v.$naranja);
+            background-color: #fafafa00;
+            &:hover {
+                background-color: v.$naranja;
+                color: v.$blanco;
+            }
+            margin: 2rem 1rem;
+
+            i {
+                padding-left: 1rem;
+                padding-right: 2rem;
+            }
+        }
+
+    }
+
+    
+}
+
+header #backgroundvideo {
+    min-width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+ }
