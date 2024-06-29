@@ -2,9 +2,10 @@
 
 namespace Controllers;
 
+use MVC\Router;
 use Classes\Email;
 use Model\Usuario;
-use MVC\Router;
+use Model\Registro;
 
 class AuthController {
     public static function login(Router $router) {
@@ -71,6 +72,13 @@ class AuthController {
         $alertas = [];
         $usuario = new Usuario;
 
+
+
+        
+
+
+
+
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $usuario->sincronizar($_POST);
@@ -107,6 +115,14 @@ class AuthController {
                 }
             }
         }
+
+        /* Redirigir si ya está autenticado */
+        if(is_auth()) {
+            header('Location: /finalizar-registro');
+            return;
+        }     
+
+        /* FIN */
 
         // Render a la vista
         $router->render('auth/registro', [

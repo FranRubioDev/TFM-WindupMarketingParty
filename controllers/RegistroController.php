@@ -31,6 +31,7 @@ class RegistroController {
 
 
         if(isset($registro) && ($registro->pack_id === "3" || $registro->pack_id === "2" )) {
+
             header('Location: /entrada?id=' . urlencode($registro->token));
 
             return;
@@ -150,7 +151,7 @@ class RegistroController {
         }
     }
 
-
+    /* Página de ponencias */
 
     public static function ponencias(Router $router) {
 
