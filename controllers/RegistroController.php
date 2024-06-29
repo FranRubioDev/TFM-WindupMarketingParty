@@ -17,6 +17,8 @@ class RegistroController {
 
     public static function crear(Router $router) {
 
+
+
         if(!is_auth()) {
             header('Location: /');
             return;
@@ -26,8 +28,11 @@ class RegistroController {
         // Verificar si el usuario ya esta registrado
         $registro = Registro::where('usuario_id', $_SESSION['id']);
 
+
+
         if(isset($registro) && ($registro->pack_id === "3" || $registro->pack_id === "2" )) {
             header('Location: /entrada?id=' . urlencode($registro->token));
+
             return;
         }
 
@@ -64,7 +69,7 @@ class RegistroController {
 
         // Crea registro
         $datos = array(
-            'pack_id' => 3,
+            'pack_id' => 1,
             'pago_id' => '',
             'token' => $token,
             'usuario_id' => $_SESSION['id']
@@ -74,6 +79,9 @@ class RegistroController {
             $resultado = $registros->guardar();
 
             if($resultado) {
+                die('test');
+                error_log("Mostrar en pantalla: " . $registro->pack_id); // Mensaje para el log del servidor
+                echo "Mostrar en pantalla: " . $registro->pack_id;
                 header('Location: /entrada?id=' . urldecode($registro->token));
                 return;
             }
@@ -155,19 +163,15 @@ class RegistroController {
         $usuario_id = $_SESSION['id'];
         $registro = Registro::where('usuario_id', $usuario_id);
 
-        /*if(isset($registro) && $registro->pack_id === "2") {
-            die ('test');*/
-          /*  header('Location: /finalizar
-
-          /*  header('Location: /entrada?id=' . urlencode($registro->token));*/
-          /*  return;
-        } */
+        if(isset($registro) && $registro->pack_id === "2" || $registro->pack_id === "3") {
+            header('Location: /entrada?id=' . urlencode($registro->token));
+            return;
+        }
         
-        if($registro->pack_id == "1") {
+        if($registro->pack_id !== "1") {
             header('Location: /');
             return;
         }
-
 
 
         $eventos = Evento::ordenar('hora_id', 'ASC');
