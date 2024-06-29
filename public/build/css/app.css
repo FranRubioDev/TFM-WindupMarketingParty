@@ -870,9 +870,9 @@ h3 {
   margin-top: 1.5rem;
 }
 .ponente__listado-skills > li {
-  background-color: #2D8DFA;
+  background-color: #F12699;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 10rem;
   font-size: 1.4rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -963,7 +963,7 @@ h3 {
   background-color: #00c8c2;
 }
 .entrada--gratis {
-  background-color: #2D8DFA;
+  background-color: #FD485E;
 }
 .entrada__logo {
   color: #FFFFFF;
@@ -994,12 +994,12 @@ h3 {
   justify-content: center;
 }
 .entrada__enlace {
-  background-color: #2D8DFA;
+  background-color: #FD485E;
   padding: 1.4rem 3rem;
   color: #FFFFFF;
   font-size: 1.6rem;
   font-weight: 700;
-  border: 2px solid #2D8DFA;
+  border: 2px solid #FD485E;
   border-radius: 100px;
   transition-property: background-color;
   transition-duration: 0.3s;
@@ -1010,7 +1010,7 @@ h3 {
 }
 .entrada__enlace:hover {
   background-color: #FFFFFF;
-  color: #2D8DFA;
+  color: #FD485E;
   border: 2px solid #FFFFFF;
   cursor: pointer;
 }
@@ -1187,20 +1187,20 @@ h3 {
   margin-top: 1.5rem;
 }
 .formulario__listado > li {
-  background-color: #2D8DFA;
+  background-color: #F12699;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 10rem;
   font-size: 1.4rem;
   font-weight: 700;
   color: #FFFFFF;
 }
 .formulario__submit {
-  background-color: #2D8DFA;
+  background-color: #FD485E;
   padding: 1.4rem 3rem;
   color: #FFFFFF;
   font-size: 1.6rem;
   font-weight: 700;
-  border: 2px solid #2D8DFA;
+  border: 2px solid #FD485E;
   border-radius: 100px;
   transition-property: background-color;
   transition-duration: 0.3s;
@@ -1212,7 +1212,7 @@ h3 {
 }
 .formulario__submit:hover {
   background-color: #FFFFFF;
-  color: #2D8DFA;
+  color: #FD485E;
   border: 2px solid #FFFFFF;
   cursor: pointer;
 }
@@ -1323,7 +1323,7 @@ h3 {
   font-weight: 700;
 }
 .header__enlace:hover, .header__submit:hover {
-  color: #2D8DFA;
+  color: #FBA820;
   cursor: pointer;
 }
 .header__form {
@@ -1473,8 +1473,7 @@ header #backgroundvideo {
 }
 
 .footer {
-  background-color: #99b1ff;
-  background-image: radial-gradient(at 77% 92%, hsl(354, 71%, 60%) 0px, transparent 50%), radial-gradient(at 28% 27%, hsl(332, 83%, 69%) 0px, transparent 50%), radial-gradient(at 25% 40%, hsl(197, 87%, 79%) 0px, transparent 50%), radial-gradient(at 59% 53%, hsl(114, 72%, 65%) 0px, transparent 50%), radial-gradient(at 53% 52%, hsl(342, 69%, 68%) 0px, transparent 50%), radial-gradient(at 36% 93%, hsl(310, 74%, 73%) 0px, transparent 50%), radial-gradient(at 67% 61%, hsl(203, 99%, 65%) 0px, transparent 50%);
+  background-color: #FD485E;
   margin-top: 8rem;
   padding-top: 3rem;
   color: #FFFFFF;
@@ -1513,7 +1512,7 @@ header #backgroundvideo {
   }
 }
 .footer__copyright {
-  background-color: #0673ee;
+  background-color: #fd6174;
   margin: 3rem 0 0 0;
   padding: 2rem 0;
   text-align: center;
@@ -1643,7 +1642,7 @@ header #backgroundvideo {
   font-weight: 700;
 }
 .dashboard__submit--logout:hover {
-  color: #2D8DFA;
+  color: #FBA820;
   cursor: pointer;
 }
 .dashboard__grid {

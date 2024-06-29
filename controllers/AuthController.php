@@ -43,7 +43,7 @@ class AuthController {
                         }
                         
                     } else {
-                        Usuario::setAlerta('error', 'Password Incorrecto');
+                        Usuario::setAlerta('error', 'Contraseña incorrecta');
                     }
                 }
             }
@@ -81,7 +81,7 @@ class AuthController {
                 $existeUsuario = Usuario::where('email', $usuario->email);
 
                 if($existeUsuario) {
-                    Usuario::setAlerta('error', 'El Usuario ya esta registrado');
+                    Usuario::setAlerta('error', 'El usuario ya esta registrado');
                     $alertas = Usuario::getAlertas();
                 } else {
                     // Hashear el password

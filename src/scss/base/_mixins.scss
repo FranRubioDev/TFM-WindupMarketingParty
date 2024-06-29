@@ -158,7 +158,7 @@
     font-weight: v.$bold;
 
     &:hover {
-        color: v.$azul;
+        color: v.$naranja;
         cursor: pointer;
     }
 }
@@ -181,9 +181,9 @@
     margin-top: 1.5rem;
 
     > li {
-        background-color: v.$azul;
+        background-color: v.$rosa;
         padding: 1rem;
-        border-radius: .5rem;
+        border-radius: 10rem;
         font-size: 1.4rem;
         font-weight: v.$bold;
         color: v.$blanco;

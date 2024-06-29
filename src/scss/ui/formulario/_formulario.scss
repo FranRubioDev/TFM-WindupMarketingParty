@@ -77,7 +77,7 @@
     }
 
     &__submit {
-        @include m.boton(v.$azul, v.$blanco);
+        @include m.boton(v.$coral, v.$blanco);
         width: auto;
         align-self: flex-start;
 
