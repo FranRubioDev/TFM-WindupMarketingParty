@@ -38,7 +38,8 @@ class RegistroController {
         }
 
         if(isset($registro) && $registro->pack_id === "1") {
-            header('Location: /finalizar-registro/ponencias');
+            header('Location: /entrada?id=' . urlencode($registro->token));
+        /*    header('Location: /finalizar-registro/');*/
             return;
         }
 
@@ -49,46 +50,56 @@ class RegistroController {
 
 
     }
-
     public static function gratis(Router $router) {
+        error_log("Entrando al método gratis"); // Depuración
+    
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            error_log("Solicitud POST recibida"); // Depuración
+    
+            if(!is_auth()) {
+                error_log("Usuario no autenticado"); // Depuración
+                header('Location: /login');
+                return;
+            }
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(!is_auth()) {
-            header('Location: /login');
-            return;
-        }
-
-        $token = substr( md5(uniqid( rand(), true )), 0, 8);
-
-
-            // Verifica si el usuario ya esta registrado
-            $registro = Registro::where('usuario_id', $_SESSION['id']);
-            if(isset($registro) && $registro->pack_id === "3") {
+            if(isset($registro) && $registro->pack_id === "1") {
+                error_log("Usuario ya registrado con pack_id 1"); // Depuración
                 header('Location: /entrada?id=' . urlencode($registro->token));
                 return;
             }
-
-        // Crea registro
-        $datos = array(
-            'pack_id' => 1,
-            'pago_id' => '',
-            'token' => $token,
-            'usuario_id' => $_SESSION['id']
-        );
-
+    
+            $token = substr(md5(uniqid(rand(), true)), 0, 8);
+            error_log("Token generado: $token"); // Depuración
+    
+            // Verifica si el usuario ya esta registrado
+            $registro = Registro::where('usuario_id', $_SESSION['id']);
+  
+    
+            // Crea registro
+            $datos = array(
+                'pack_id' => 1,
+                'pago_id' => '',
+                'token' => $token,
+                'usuario_id' => $_SESSION['id']
+            );
+            error_log("Datos del nuevo registro: " . json_encode($datos)); // Depuración
+    
             $registro = new Registro($datos);
-            $resultado = $registros->guardar();
-
+            $resultado = $registro->guardar();
+            error_log("Resultado de guardar: " . var_export($resultado, true)); // Depuración
+    
             if($resultado) {
-                die('test');
-                error_log("Mostrar en pantalla: " . $registro->pack_id); // Mensaje para el log del servidor
-                echo "Mostrar en pantalla: " . $registro->pack_id;
-                header('Location: /entrada?id=' . urldecode($registro->token));
+                error_log("Redirigiendo a entrada"); // Depuración
+                header('Location: /entrada?id=' . urlencode($registro->token));
                 return;
+            } else {
+                error_log("Error al guardar el registro"); // Depuración
             }
-
+        } else {
+            error_log("Solicitud no es POST"); // Depuración
+        }
     }
-    }
+    
 
     public static function entrada(Router $router) {
 
@@ -164,13 +175,14 @@ class RegistroController {
         $usuario_id = $_SESSION['id'];
         $registro = Registro::where('usuario_id', $usuario_id);
 
-        if(isset($registro) && $registro->pack_id === "2" || $registro->pack_id === "3") {
+        if(isset($registro) && $registro->pack_id == "2" || $registro->pack_id == "3") {
             header('Location: /entrada?id=' . urlencode($registro->token));
             return;
         }
         
-        if($registro->pack_id !== "1") {
-            header('Location: /');
+        if($registro->pack_id == "1") {
+            header('Location: /entrada?id=' . urlencode($registro->token));
+          /*  header('Location: /'); */
             return;
         }
 

@@ -10,7 +10,7 @@
       </ul>
       <p class="pack__precio">0€</p>
             <form method="POST" action="/finalizar-registro/gratis">
-                <input class="packs__submit" type="submit" value="Inscripción Gratis">
+                <input class="packs__submit" type="submit" value="Entrada Gratuita Online">
             </form>
         </div>
 

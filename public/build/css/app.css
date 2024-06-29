@@ -962,8 +962,8 @@ h3 {
 .entrada--presencial {
   background-color: #00c8c2;
 }
-.entrada--gratis {
-  background-color: #FD485E;
+.entrada--gratuita {
+  background-color: #9449FB;
 }
 .entrada__logo {
   color: #FFFFFF;
@@ -982,6 +982,28 @@ h3 {
   font-size: 2rem;
   text-transform: uppercase;
   margin: 3rem 0 0 0;
+}
+.entrada__boton {
+  background-color: #FFFFFF;
+  padding: 1.4rem 3rem;
+  color: #FD485E;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: 2px solid #FFFFFF;
+  border-radius: 100px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  display: inline-block;
+  max-width: 25rem;
+  width: auto;
+  margin-top: 3rem;
+}
+.entrada__boton:hover {
+  background-color: #FD485E;
+  color: #FFFFFF;
+  border: 2px solid #FD485E;
+  cursor: pointer;
 }
 .entrada__precio {
   margin: 3rem 0 0 0;

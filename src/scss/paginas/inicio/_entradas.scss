@@ -48,8 +48,8 @@
     &--presencial {
         background-color: v.$secundario;
     }
-    &--gratis {
-        background-color: v.$coral;
+    &--gratuita {
+        background-color: v.$morado;
     }
 
     
@@ -63,6 +63,14 @@
         text-transform: uppercase;
         margin: 3rem 0 0 0;
     }
+
+    &__boton {
+        @include m.boton(v.$blanco, v.$coral);
+        width: auto;
+        margin-top: 3rem;
+    }
+
+
     &__precio {
         margin: 3rem 0 0 0;
         font-weight: v.$black;

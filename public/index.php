@@ -90,4 +90,4 @@ $router->get('/ponencias', [PaginasController::class, 'ponencias']);
 $router->get('/404', [PaginasController::class, 'error']);
 
 
-$router->comprobarRutas();
+ $router->comprobarRutas();
