@@ -119,24 +119,3 @@ class PaginasController {
     }
 
 }
-
-/*
-El código que estás viendo es una clase llamada PaginasController en PHP. Esta clase contiene varios métodos estáticos que se utilizan para manejar diferentes rutas en una aplicación web.
-
-El método index es el punto de entrada para la ruta de inicio de la aplicación. En este método, se realiza lo siguiente:
-
-Se obtienen todos los eventos ordenados por la columna hora_id de forma ascendente.
-Se crea un arreglo vacío llamado $eventos_formateados para almacenar los eventos formateados.
-Se itera sobre cada evento y se realiza lo siguiente:
-Se obtiene la categoría, el día, la hora y el ponente correspondiente a cada evento utilizando los métodos find de las respectivas clases.
-Se verifica si el evento pertenece al día 1 y a la categoría 1, y si es así, se agrega al arreglo $eventos_formateados['conferencias_v'].
-Se verifica si el evento pertenece al día 2 y a la categoría 1, y si es así, se agrega al arreglo $eventos_formateados['conferencias_s'].
-Se verifica si el evento pertenece al día 1 y a la categoría 2, y si es así, se agrega al arreglo $eventos_formateados['actividades_v'].
-Se verifica si el evento pertenece al día 2 y a la categoría 2, y si es así, se agrega al arreglo $eventos_formateados['actividades_s'].
-Se obtiene el total de ponentes, conferencias y actividades utilizando los métodos total de las respectivas clases.
-Se obtienen todos los ponentes.
-Se renderiza la vista paginas/index pasando los datos necesarios, como el título, los eventos formateados, el total de ponentes, conferencias y actividades, y la lista de ponentes.
-Los otros métodos de la clase (evento, packs, ponencias y error) siguen una estructura similar, donde se obtienen los datos necesarios y se renderiza la vista correspondiente.
-
-En resumen, esta clase se encarga de manejar diferentes rutas de una aplicación web, obteniendo los datos necesarios y renderizando las vistas correspondientes
-*/

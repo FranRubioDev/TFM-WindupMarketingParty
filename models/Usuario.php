@@ -109,9 +109,10 @@ class Usuario extends ActiveRecord
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
 
-    // Generar un Token
+    // Generar un Token único
     public function crearToken(): void
     {
         $this->token = uniqid();
+      /*  $this->token = md5( uniqid() ); */
     }
 }

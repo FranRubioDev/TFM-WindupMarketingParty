@@ -20,8 +20,12 @@ class Router
     public function comprobarRutas()
     {
 
-        $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+        $uri = str_replace($_SERVER['QUERY_STRING'], "", $_SERVER['REQUEST_URI']);
+        $uri = str_replace("?", "", $uri);
+     
+        $url_actual = $uri ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
+
 
         if ($method === 'GET') {
             $fn = $this->getRoutes[$url_actual] ?? null;
@@ -32,7 +36,7 @@ class Router
         if ( $fn ) {
             call_user_func($fn, $this);
         } else {
-         //   header('Location: /404');
+            header('Location: /404');
         }
     }
 
@@ -48,15 +52,15 @@ class Router
 
         $contenido = ob_get_clean(); // Limpia el Buffer
 
-        //Aquí utilizo el layout según la URL
+        // Utilizar el Layout de acuerdo a la URL
         $url_actual = $_SERVER['PATH_INFO'] ?? '/';
 
-        if(str_contains($url_actual, '/admin/'))  {// STR_CONSTAINS es nuevo en PHP8
+        if(str_contains($url_actual, '/admin')) {
             include_once __DIR__ . '/views/admin-layout.php';
         } else {
             include_once __DIR__ . '/views/layout.php';
         }
 
-
+        
     }
 }

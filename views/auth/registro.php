@@ -4,7 +4,7 @@
     <p class="auth__texto">Registrate en Windup Marketing Party</p>
 
     <?php
-        if ($usuario->registrado) {
+        if ($usuario->confirmado) {
             header("Location: /finalizar-registro");
             exit;
         }
