@@ -6,16 +6,16 @@ function debug($variable) : string {
     echo "</pre>";
     exit;
 }
+
 function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
 
-function pagina_actual($path) : bool{
-    return str_contains( $_SERVER['PATH_INFO'] ?? '/', $path ) ? true : false;
-
+function pagina_actual($path) : bool {
+    $uri = strtok($_SERVER['REQUEST_URI'], '?') ?: '/';
+    return str_contains($uri, $path) ? true : false;
 }
-
 
 function is_auth() : bool {
     if(!isset($_SESSION)) {

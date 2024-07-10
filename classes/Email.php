@@ -27,13 +27,16 @@ class Email {
          $mail->Port = $_ENV['EMAIL_PORT'];
          $mail->Username = $_ENV['EMAIL_USER'];
          $mail->Password = $_ENV['EMAIL_PASS'];
+
+         // Configurar el tipo de seguridad
+         $mail->SMTPSecure = 'ssl'; // Utilizar SSL
      
-         $mail->setFrom('franrubio@windup.es');
+         $mail->setFrom('hola@franrubio.dev');
          $mail->addAddress($this->email, $this->nombre);
          $mail->Subject = 'Confirma tu Cuenta';
 
          // Set HTML
-         $mail->isHTML(TRUE);
+         $mail->isHTML(true);
          $mail->CharSet = 'UTF-8';
 
          $contenido = '<html>';
@@ -43,9 +46,13 @@ class Email {
          $contenido .= '</html>';
          $mail->Body = $contenido;
 
-         //Enviar el mail
-         $mail->send();
-
+         // Enviar el mail
+         if(!$mail->send()) {
+             echo 'El mensaje no pudo ser enviado.';
+             echo 'Mailer Error: ' . $mail->ErrorInfo;
+         } else {
+             echo 'El mensaje ha sido enviado';
+         }
     }
 
     public function enviarInstrucciones() {
@@ -58,13 +65,16 @@ class Email {
         $mail->Port = $_ENV['EMAIL_PORT'];
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASS'];
+
+        // Configurar el tipo de seguridad
+        $mail->SMTPSecure = 'ssl'; // Utilizar SSL
     
-        $mail->setFrom('franrubio@windup.es');
+        $mail->setFrom('hola@franrubio.dev');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Reestablece tu contraseña';
 
         // Set HTML
-        $mail->isHTML(TRUE);
+        $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
@@ -74,7 +84,12 @@ class Email {
         $contenido .= '</html>';
         $mail->Body = $contenido;
 
-        //Enviar el mail
-        $mail->send();
+        // Enviar el mail
+        if(!$mail->send()) {
+            echo 'El mensaje no pudo ser enviado.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'El mensaje ha sido enviado';
+        }
     }
 }
